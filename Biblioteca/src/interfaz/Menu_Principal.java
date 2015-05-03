@@ -95,12 +95,13 @@ public class Menu_Principal extends JFrame implements ActionListener {
 			Buscar_Libro buscar = new Buscar_Libro();
 			buscar.setVisible(true);
 			
+			/*
 			Carga_archivo archivo = new Carga_archivo("hi");
 			System.out.println("Cargo " + archivo.load_file().get(1));
 			ArrayList <String> escribir = new ArrayList<String>();
 			escribir.add("Hola");
 			escribir.add("Como estas");
-			archivo.escribe_archivo(escribir);
+			archivo.escribe_archivo(escribir);*/
 			
 			dispose();
 		}

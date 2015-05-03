@@ -44,6 +44,7 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	public Ver_Prestamo() {
 		configuraFrame();
 		creaBarraMenu();
+
 	}
 	
 	private void configuraFrame(){

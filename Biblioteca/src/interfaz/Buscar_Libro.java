@@ -11,6 +11,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class Buscar_Libro extends JFrame implements ActionListener{
 
@@ -21,6 +23,8 @@ public class Buscar_Libro extends JFrame implements ActionListener{
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
 	private JButton btnBuscar;
+	private JTextField txtNombre;
+	private JTextField txtAutor;
 
 	/**
 	 * Launch the application.
@@ -46,6 +50,9 @@ public class Buscar_Libro extends JFrame implements ActionListener{
 		configuraFrame();
 		creaBarraMenu();
 		creaBotones();
+		creaLabels();
+		creaTextFields();
+		
 	}
 	
 	private void configuraFrame(){
@@ -76,12 +83,34 @@ public class Buscar_Libro extends JFrame implements ActionListener{
 		   
 	}
 	private void creaBotones(){
-		   btnBuscar = new JButton("buscar");
+		   btnBuscar = new JButton("Buscar");
 		   btnBuscar.setBounds(308, 212, 89, 23);
 		   btnBuscar.addActionListener(this);
 		   contenedor.add(btnBuscar);
+		  
+	}
+	private void creaLabels(){
+		   JLabel lblNombreDelLibro = new JLabel("Nombre del Libro");
+		   lblNombreDelLibro.setBounds(20, 46, 148, 25);
+		   contenedor.add(lblNombreDelLibro);
+		   
+		   JLabel lblAutorDelLibro = new JLabel("Autor del Libro");
+		   lblAutorDelLibro.setBounds(20, 114, 148, 25);
+		   contenedor.add(lblAutorDelLibro);
 		
 	}
+	private void creaTextFields(){
+		   txtNombre = new JTextField();
+		   txtNombre.setBounds(96, 82, 140, 20);
+		   contenedor.add(txtNombre);
+		   txtNombre.setColumns(10);
+		   
+		   txtAutor = new JTextField();
+		   txtAutor.setBounds(96, 163, 140, 20);
+		   contenedor.add(txtAutor);
+		   txtAutor.setColumns(10);
+	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

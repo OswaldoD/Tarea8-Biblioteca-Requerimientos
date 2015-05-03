@@ -11,6 +11,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.TextArea;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class Resultados_Busqueda extends JFrame implements ActionListener{
 
@@ -21,6 +24,8 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
 	private JButton btnConsultar;
+	private JTextField txtNConsulta;
+	private TextArea txtResultados;
 
 
 	/**
@@ -46,11 +51,14 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		configuraFrame();
 		creaBarraMenu();
 		creaBotones();
+		creaLabels();
+		creaTextArea();
+		creaTextFields();
 	}
 	
 	private void configuraFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 487, 303);
 		setTitle("Resultado Busquedas");
 		contenedor = new JPanel();
 		contenedor.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,15 +81,37 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
-		   
-
-		
+		  
 	}
 	private void creaBotones(){
 		   btnConsultar = new JButton("Consultar");
-		   btnConsultar.setBounds(315, 227, 89, 23);
+		   btnConsultar.setBounds(356, 231, 89, 23);
 		   btnConsultar.addActionListener(this);
 		   contenedor.add(btnConsultar);
+		   		
+	}
+	
+	private void creaLabels(){
+		   JLabel lblResultadosEncontrados = new JLabel("Resultados Encontrados");
+		   lblResultadosEncontrados.setBounds(23, 36, 171, 19);
+		   contenedor.add(lblResultadosEncontrados);
+		   
+		   JLabel lblIngreseElNmero = new JLabel("Ingrese el n\u00FAmero de libro que desea consultar");
+		   lblIngreseElNmero.setBounds(10, 231, 300, 14);
+		   contenedor.add(lblIngreseElNmero);
+		
+	}
+	private void creaTextFields(){
+		   txtNConsulta = new JTextField();
+		   txtNConsulta.setBounds(294, 227, 40, 22);
+		   contenedor.add(txtNConsulta);
+		   txtNConsulta.setColumns(10);
+	}
+	private void creaTextArea(){
+		   txtResultados = new TextArea();
+		   txtResultados.setEditable(false);
+		   txtResultados.setBounds(70, 61, 307, 160);
+		   contenedor.add(txtResultados);
 		
 	}
 
@@ -104,5 +134,4 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 			dispose();
 		}
 	}
-
 }
