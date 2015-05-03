@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import logica.Busqueda;
 import logica.Carga_archivo;
 
 public class Menu_Principal extends JFrame implements ActionListener {
@@ -94,6 +95,9 @@ public class Menu_Principal extends JFrame implements ActionListener {
 			
 			Buscar_Libro buscar = new Buscar_Libro();
 			buscar.setVisible(true);
+			
+			Busqueda busqueda = new Busqueda();
+			System.out.println(busqueda.buscaLibros("harry").get(0));
 			
 			/*
 			Carga_archivo archivo = new Carga_archivo("hi");

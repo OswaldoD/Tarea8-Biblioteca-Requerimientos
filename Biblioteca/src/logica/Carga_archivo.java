@@ -12,8 +12,8 @@ public class Carga_archivo {
 	
 	
 	public Carga_archivo(String ruta){
-		this.ruta = "src/database/hola.txt";
-		
+		//this.ruta = "src/database/hola.txt";
+		this.ruta = ruta;
 		
 	}
 	
