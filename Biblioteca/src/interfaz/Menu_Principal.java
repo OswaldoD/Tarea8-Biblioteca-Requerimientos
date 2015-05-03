@@ -92,8 +92,8 @@ public class Menu_Principal extends JFrame implements ActionListener {
 		if (e.getSource()==mntmPrestamoLibro){
 			System.out.println("Prestar");
 			
-			Prestamo prestar = new Prestamo();
-			prestar.setVisible(true);
+			Buscar_Libro buscar = new Buscar_Libro();
+			buscar.setVisible(true);
 			
 			Carga_archivo archivo = new Carga_archivo("hi");
 			System.out.println("Cargo " + archivo.load_file().get(1));
@@ -108,7 +108,7 @@ public class Menu_Principal extends JFrame implements ActionListener {
 		else if (e.getSource()==mtnmDevolverLibro){
 			System.out.println("Devolver");
 			
-			Devolver devolver = new Devolver();
+			Buscar_Prestamo devolver = new Buscar_Prestamo();
 			devolver.setVisible(true);
 			dispose();
 		}
