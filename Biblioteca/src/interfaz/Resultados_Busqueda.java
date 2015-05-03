@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Resultados_Busqueda extends JFrame implements ActionListener{
 
@@ -19,6 +20,7 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
+	private JButton btnConsultar;
 
 
 	/**
@@ -43,12 +45,13 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 	public Resultados_Busqueda() {
 		configuraFrame();
 		creaBarraMenu();
+		creaBotones();
 	}
 	
 	private void configuraFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setTitle("Resultado_Busquedas");
+		setTitle("Resultado Busquedas");
 		contenedor = new JPanel();
 		contenedor.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contenedor.setLayout(null);
@@ -70,6 +73,15 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
+		   
+
+		
+	}
+	private void creaBotones(){
+		   btnConsultar = new JButton("Consultar");
+		   btnConsultar.setBounds(315, 227, 89, 23);
+		   btnConsultar.addActionListener(this);
+		   contenedor.add(btnConsultar);
 		
 	}
 
@@ -84,6 +96,11 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		}
 		
 		else if (e.getSource()==mntmSalir){
+			dispose();
+		}
+		else if(e.getSource()==btnConsultar){
+			Ver_Libro libro = new Ver_Libro();
+			libro.setVisible(true);
 			dispose();
 		}
 	}

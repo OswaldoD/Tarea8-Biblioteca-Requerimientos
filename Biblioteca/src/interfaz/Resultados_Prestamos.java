@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Resultados_Prestamos extends JFrame implements ActionListener{
 
@@ -19,6 +20,7 @@ public class Resultados_Prestamos extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
+	private JButton btnConsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -41,12 +43,13 @@ public class Resultados_Prestamos extends JFrame implements ActionListener{
 	public Resultados_Prestamos() {
 		configuraFrame();
 		creaBarraMenu();
+		creaBotones();
 	}
 	
 	private void configuraFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setTitle("Devolver Libro");
+		setTitle("Resultados Préstamos");
 		contenedor = new JPanel();
 		contenedor.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contenedor.setLayout(null);
@@ -68,7 +71,15 @@ public class Resultados_Prestamos extends JFrame implements ActionListener{
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
+		   
+
 		
+	}
+	private void creaBotones(){
+		   btnConsultar = new JButton("Consultar");
+		   btnConsultar.setBounds(335, 227, 89, 23);
+		   btnConsultar.addActionListener(this);
+		   contenedor.add(btnConsultar);
 	}
 
 	@Override
@@ -82,6 +93,11 @@ public class Resultados_Prestamos extends JFrame implements ActionListener{
 		}
 		
 		else if (e.getSource()==mntmSalir){
+			dispose();
+		}
+		else if(e.getSource()==btnConsultar){
+			Ver_Prestamo prestamo = new Ver_Prestamo();
+			prestamo.setVisible(true);
 			dispose();
 		}
 	}

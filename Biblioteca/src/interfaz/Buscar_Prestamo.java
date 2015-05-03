@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Buscar_Prestamo extends JFrame implements ActionListener {
 
@@ -19,6 +20,7 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
+	private JButton btnBuscar;
 
 
 	/**
@@ -43,6 +45,7 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 	public Buscar_Prestamo() {
 		configuraFrame();
 		creaBarraMenu();
+		creaBotones();
 	}
 	
 	private void configuraFrame(){
@@ -70,6 +73,15 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
+		   
+
+		
+	}
+	private void creaBotones(){
+		   btnBuscar = new JButton("Buscar");
+		   btnBuscar.addActionListener(this);
+		   btnBuscar.setBounds(335, 212, 89, 23);
+		   contenedor.add(btnBuscar);
 		
 	}
 
@@ -84,6 +96,11 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 		}
 		
 		else if (e.getSource()==mntmSalir){
+			dispose();
+		}
+		else if(e.getSource()==btnBuscar){
+			Resultados_Prestamos resultados = new Resultados_Prestamos();
+			resultados.setVisible(true);
 			dispose();
 		}
 	}

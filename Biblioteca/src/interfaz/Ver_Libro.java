@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Ver_Libro extends JFrame implements ActionListener{
 
@@ -19,6 +20,7 @@ public class Ver_Libro extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 05;
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
+	private JButton btnSolicitarPrstamo;
 
 
 	/**
@@ -70,6 +72,10 @@ public class Ver_Libro extends JFrame implements ActionListener{
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
+		   
+		   btnSolicitarPrstamo = new JButton("Solicitar Pr\u00E9stamo");
+		   btnSolicitarPrstamo.setBounds(257, 214, 128, 25);
+		   contenedor.add(btnSolicitarPrstamo);
 		
 	}
 
@@ -80,6 +86,11 @@ public class Ver_Libro extends JFrame implements ActionListener{
 			System.out.println("Prestar");
 			Buscar_Libro buscar = new Buscar_Libro();
 			buscar.setVisible(true);
+			
+			/* Acá debiera ir
+			Resultados_Busqueda resultado = new Resultados_Busqueda();
+			resultado.setVisible(true);*/
+			
 			dispose();
 		}
 		

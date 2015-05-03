@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class Ver_Prestamo extends JFrame implements ActionListener {
 
@@ -19,6 +20,7 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
+	private JButton btnDevolverLibro;
 
 	/**
 	 * Launch the application.
@@ -69,6 +71,11 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
+		   
+		   btnDevolverLibro = new JButton("Devolver Libro");
+		   btnDevolverLibro.addActionListener(this);
+		   btnDevolverLibro.setBounds(291, 227, 121, 23);
+		   contenedor.add(btnDevolverLibro);
 		
 	}
 
@@ -84,6 +91,9 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		
 		else if (e.getSource()==mntmSalir){
 			dispose();
+		}
+		else if(e.getSource()==btnDevolverLibro){
+			System.out.println("Devolver");
 		}
 	}
 
