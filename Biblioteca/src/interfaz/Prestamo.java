@@ -3,7 +3,6 @@ package interfaz;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -12,16 +11,14 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import logica.Carga_archivo;
-
-public class Menu_Principal extends JFrame implements ActionListener {
+public class Prestamo extends JFrame implements ActionListener{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 01;
+	private static final long serialVersionUID = 02;
 	private JPanel contenedor;
-	private JMenuItem mntmPrestamoLibro, mtnmDevolverLibro, mntmSalir;
+	private JMenuItem mntmAtras, mntmSalir;
 
 	/**
 	 * Launch the application.
@@ -30,7 +27,7 @@ public class Menu_Principal extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Menu_Principal frame = new Menu_Principal();
+					Prestamo frame = new Prestamo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,82 +39,55 @@ public class Menu_Principal extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Menu_Principal() {
-
-		
+	public Prestamo() {
 		configuraFrame();
 		creaBarraMenu();
+		
 	}
-
+	
 	private void configuraFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setTitle("Menú Principal");
+		setTitle("Préstamo de Libros");
 		contenedor = new JPanel();
 		contenedor.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contenedor.setLayout(null);
 		setContentPane(contenedor);
+	
 	}
-		   
+	
 	private void creaBarraMenu(){
-		   /**
-		    * Método que crea la barra de Menú del Frame 
-		    * y sus respectivos componentes
-		    */
 		   JMenuBar Barra_menu = new JMenuBar();
 		   Barra_menu.setBounds(0, 0, 550, 25);
 		   contenedor.add(Barra_menu);
 		   
 		   JMenu mnArchivo = new JMenu("Archivo");
 		   Barra_menu.add(mnArchivo);
-		   
-		   mntmPrestamoLibro = new JMenuItem("Pr\u00E9stamo Libro");
-		   mntmPrestamoLibro.addActionListener(this);
-		   mnArchivo.add(mntmPrestamoLibro);
-		   
-		   mtnmDevolverLibro = new JMenuItem("Devolver Libro");
-		   mtnmDevolverLibro.addActionListener(this);
-		   mnArchivo.add(mtnmDevolverLibro);
+		  
+		   mntmAtras = new JMenuItem("Atras");
+		   mntmAtras.addActionListener(this);
+		   mnArchivo.add(mntmAtras);
 		   
 		   mntmSalir = new JMenuItem("Salir");
 		   mntmSalir.addActionListener(this);
 		   mnArchivo.add(mntmSalir);
-		   
-	   }
+		
+	}
+	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		//String source = (String) e.getSource();
-		//source.equals(anObject)
-		if (e.getSource()==mntmPrestamoLibro){
+		if (e.getSource()==mntmAtras){
 			System.out.println("Prestar");
-			
-			Prestamo prestar = new Prestamo();
-			prestar.setVisible(true);
-			
-			Carga_archivo archivo = new Carga_archivo("hi");
-			System.out.println("Cargo " + archivo.load_file().get(1));
-			ArrayList <String> escribir = new ArrayList<String>();
-			escribir.add("Hola");
-			escribir.add("Como estas");
-			archivo.escribe_archivo(escribir);
-			
-			dispose();
-		}
-		
-		else if (e.getSource()==mtnmDevolverLibro){
-			System.out.println("Devolver");
-			
-			Devolver devolver = new Devolver();
-			devolver.setVisible(true);
+			Menu_Principal principal = new Menu_Principal();
+			principal.setVisible(true);
 			dispose();
 		}
 		
 		else if (e.getSource()==mntmSalir){
 			dispose();
 		}
-
-		
 	}
 
 }
