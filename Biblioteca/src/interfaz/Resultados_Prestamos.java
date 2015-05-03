@@ -11,7 +11,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Ver_Prestamo extends JFrame implements ActionListener {
+public class Resultados_Prestamos extends JFrame implements ActionListener{
 
 	/**
 	 * 
@@ -19,7 +19,6 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
-
 	/**
 	 * Launch the application.
 	 */
@@ -27,7 +26,7 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ver_Prestamo frame = new Ver_Prestamo();
+					Resultados_Prestamos frame = new Resultados_Prestamos();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +38,7 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Ver_Prestamo() {
+	public Resultados_Prestamos() {
 		configuraFrame();
 		creaBarraMenu();
 	}
