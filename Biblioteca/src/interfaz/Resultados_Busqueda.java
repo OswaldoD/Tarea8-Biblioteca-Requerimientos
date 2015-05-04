@@ -11,9 +11,14 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
 import java.awt.TextArea;
+import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import logica.Busqueda;
 
 public class Resultados_Busqueda extends JFrame implements ActionListener{
 
@@ -35,10 +40,10 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Resultados_Busqueda frame = new Resultados_Busqueda();
-					frame.setVisible(true);
+					//Resultados_Busqueda frame = new Resultados_Busqueda(["",""]);
+					//frame.setVisible(true);
 				} catch (Exception e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 		});
@@ -47,13 +52,14 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public Resultados_Busqueda() {
+	public Resultados_Busqueda(String parametros_busqueda[]) {
 		configuraFrame();
 		creaBarraMenu();
 		creaBotones();
 		creaLabels();
 		creaTextArea();
 		creaTextFields();
+		mostrarBusqueda(parametros_busqueda);
 	}
 	
 	private void configuraFrame(){
@@ -114,6 +120,31 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		   contenedor.add(txtResultados);
 		
 	}
+	private void mostrarBusqueda(String parametros_busqueda[]){
+		
+		Busqueda busqueda = new Busqueda();
+	//	System.out.println(busqueda.buscaLibros(parametros_busqueda[0],parametros_busqueda[0]).get(0));
+		ArrayList<String> resultados = new ArrayList<String>();
+		resultados = busqueda.buscaLibros(parametros_busqueda[0], parametros_busqueda[0]);
+		String resultados_mostrar = "";
+		for(int i = 0; i<resultados.size();i++){
+			resultados_mostrar+= (i+1) +" - "+ resultados.get(i) + "\n";
+		
+		}
+		txtResultados.setText(resultados_mostrar);
+	}
+	private void mostrarLibro(){
+		String tmp = txtNConsulta.getText();
+		int opcion = Integer.parseInt(tmp);
+		
+		Busqueda busqueda = new Busqueda();
+		System.out.println("Mostrar libro : " + busqueda.buscaCodigoLibro(opcion));
+		
+		Ver_Libro libro = new Ver_Libro(busqueda.buscaCodigoLibro(opcion));
+		libro.setVisible(true);
+		
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -129,8 +160,7 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 			dispose();
 		}
 		else if(e.getSource()==btnConsultar){
-			Ver_Libro libro = new Ver_Libro();
-			libro.setVisible(true);
+			mostrarLibro();
 			dispose();
 		}
 	}

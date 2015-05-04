@@ -3,14 +3,18 @@ package interfaz;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
+import logica.Devolucion;
 
 public class Ver_Prestamo extends JFrame implements ActionListener {
 
@@ -21,6 +25,9 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	private JPanel contenedor;
 	private JMenuItem mntmAtras, mntmSalir;
 	private JButton btnDevolverLibro;
+	private String parametros[] = new String[2];
+	private ArrayList<String> p_mostrar = new ArrayList<String>();
+
 
 	/**
 	 * Launch the application.
@@ -29,8 +36,8 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ver_Prestamo frame = new Ver_Prestamo();
-					frame.setVisible(true);
+					//Ver_Prestamo frame = new Ver_Prestamo();
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,9 +48,13 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Ver_Prestamo() {
+	public Ver_Prestamo(String parametros[]) {
 		configuraFrame();
 		creaBarraMenu();
+		crearLabels();
+		crearTextFields();
+		mostrarPrestamo(parametros);
+		this.parametros = parametros;
 
 	}
 	
@@ -79,6 +90,33 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		   contenedor.add(btnDevolverLibro);
 		
 	}
+	private void crearLabels(){
+		
+	}
+	private void crearTextFields(){
+		
+	}
+	private void mostrarPrestamo(String parametros[]){
+		//ArrayList<String> p_mostrar = new ArrayList<String>();
+		Devolucion mostrar_prestamo = new Devolucion();
+		p_mostrar = mostrar_prestamo.cargaPrestamo(parametros[0], parametros[1]);
+		//mostrar los datos en el frame
+		
+		
+	}
+	private void generaDevolucion(){
+		Devolucion g_devolucion = new Devolucion();
+		g_devolucion.generaDevolucion(p_mostrar, parametros[0], parametros[1]);
+		
+		
+	    JOptionPane.showMessageDialog(null,"La devolución se ha realizado con éxito",
+					  "Devolución Realizada",JOptionPane.WARNING_MESSAGE);
+	    
+	    Menu_Principal principal = new Menu_Principal();
+		principal.setVisible(true);
+		dispose();
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -94,6 +132,7 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 			dispose();
 		}
 		else if(e.getSource()==btnDevolverLibro){
+			generaDevolucion();
 			System.out.println("Devolver");
 		}
 	}

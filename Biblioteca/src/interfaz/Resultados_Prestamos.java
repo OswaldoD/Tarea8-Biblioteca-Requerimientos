@@ -126,8 +126,10 @@ public class Resultados_Prestamos extends JFrame implements ActionListener{
 			dispose();
 		}
 		else if(e.getSource()==btnConsultar){
+			/*
 			Ver_Prestamo prestamo = new Ver_Prestamo();
-			prestamo.setVisible(true);
+			prestamo.setVisible(true);*/
+			
 			dispose();
 		}
 	}

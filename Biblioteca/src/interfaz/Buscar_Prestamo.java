@@ -25,6 +25,7 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 	private JButton btnBuscar;
 	private JLabel lblIdentificacion;
 	private JTextField txtIdentificacion;
+	private JTextField txtCodigo;
 
 
 	/**
@@ -93,12 +94,30 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 		   lblIdentificacion = new JLabel("Ingrese un n\u00FAmero de identificaci\u00F3n v\u00E1lido");
 		   lblIdentificacion.setBounds(21, 46, 400, 14);
 		   contenedor.add(lblIdentificacion);
+		   
+		   JLabel lblIngreseElCdigo = new JLabel("Ingrese el c\u00F3digo del libro");
+		   lblIngreseElCdigo.setBounds(21, 125, 200, 14);
+		   contenedor.add(lblIngreseElCdigo);
 	}
 	private void creaTextFields(){
 		   txtIdentificacion = new JTextField();
 		   txtIdentificacion.setBounds(101, 88, 150, 20);
 		   contenedor.add(txtIdentificacion);
 		   txtIdentificacion.setColumns(10);
+		   
+		   txtCodigo = new JTextField();
+		   txtCodigo.setBounds(101, 163, 150, 20);
+		   contenedor.add(txtCodigo);
+		   txtCodigo.setColumns(10);
+	}
+	private void muestraPrestamo(){
+		String parametros[] = new String[2];
+		parametros[0] = txtIdentificacion.getText();
+		parametros[1] = txtCodigo.getText();
+		
+		Ver_Prestamo prestamo = new Ver_Prestamo(parametros);
+		prestamo.setVisible(true);
+		
 	}
 
 	@Override
@@ -115,10 +134,11 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 			dispose();
 		}
 		else if(e.getSource()==btnBuscar){
+			/*
 			Resultados_Prestamos resultados = new Resultados_Prestamos();
-			resultados.setVisible(true);
+			resultados.setVisible(true);*/
+			muestraPrestamo();
 			dispose();
 		}
 	}
-
 }
