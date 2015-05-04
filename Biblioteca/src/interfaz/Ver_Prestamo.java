@@ -1,11 +1,13 @@
 package interfaz;
 
 import java.awt.EventQueue;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -27,6 +29,7 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	private JButton btnDevolverLibro;
 	private String parametros[] = new String[2];
 	private ArrayList<String> p_mostrar = new ArrayList<String>();
+	private TextArea txtResultados;
 
 
 	/**
@@ -51,8 +54,9 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	public Ver_Prestamo(String parametros[]) {
 		configuraFrame();
 		creaBarraMenu();
-		crearLabels();
+		creaLabels();		
 		crearTextFields();
+		creaTextArea();
 		mostrarPrestamo(parametros);
 		this.parametros = parametros;
 
@@ -90,10 +94,21 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		   contenedor.add(btnDevolverLibro);
 		
 	}
-	private void crearLabels(){
+	private void creaLabels(){
+		
+		   JLabel lblInformacinDelLibro = new JLabel("Informaci\u00F3n del préstamo");
+		   lblInformacinDelLibro.setBounds(10, 34, 200, 14);
+		   contenedor.add(lblInformacinDelLibro);
 		
 	}
 	private void crearTextFields(){
+		
+	}
+	private void creaTextArea(){
+		txtResultados = new TextArea();
+		txtResultados.setEditable(false);
+		txtResultados.setBounds(70, 61, 307, 160);
+		contenedor.add(txtResultados);
 		
 	}
 	private void mostrarPrestamo(String parametros[]){
@@ -101,6 +116,14 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		Devolucion mostrar_prestamo = new Devolucion();
 		p_mostrar = mostrar_prestamo.cargaPrestamo(parametros[0], parametros[1]);
 		//mostrar los datos en el frame
+		
+		String resultados_mostrar = "";
+		for(int i = 0; i<p_mostrar.size();i++){
+			resultados_mostrar+= p_mostrar.get(i) + "\n";
+		
+		}
+		
+		txtResultados.setText(resultados_mostrar);
 		
 		
 	}

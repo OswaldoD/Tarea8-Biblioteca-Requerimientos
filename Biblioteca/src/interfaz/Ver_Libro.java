@@ -1,11 +1,12 @@
 package interfaz;
 
 import java.awt.EventQueue;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -30,6 +31,8 @@ public class Ver_Libro extends JFrame implements ActionListener{
 	private	ArrayList<String> libro = new ArrayList<String>();
 	private JTextField txtIdU;
 	private String clibro;
+	private JLabel lblInformacinDelLibro;
+	private TextArea txtResultados;
 
 
 	/**
@@ -56,13 +59,14 @@ public class Ver_Libro extends JFrame implements ActionListener{
 		creaBarraMenu();
 		creaLabels();
 		creaTextFields();
+		creaTextArea();
 		mostrarLibro(clibro);
 		this.clibro=clibro;
 	}
 	
 	private void configuraFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 326);
 		setTitle("Ver Libro consultado");
 		contenedor = new JPanel();
 		contenedor.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,27 +91,51 @@ public class Ver_Libro extends JFrame implements ActionListener{
 		   mnArchivo.add(mntmSalir);
 		   
 		   btnSolicitarPrstamo = new JButton("Solicitar Pr\u00E9stamo");
-		   btnSolicitarPrstamo.setBounds(257, 214, 150, 25);
+		   btnSolicitarPrstamo.setBounds(251, 245, 150, 25);
 		   btnSolicitarPrstamo.addActionListener(this);
 		   contenedor.add(btnSolicitarPrstamo);
 		   		
 	}
 	private void creaLabels(){
+		   JLabel lblIdentificacion = new JLabel("Ingrese un n\u00FAmero de identificaci\u00F3n v\u00E1lido");
+		   lblIdentificacion.setBounds(10, 225, 400, 14);
+		   contenedor.add(lblIdentificacion);
+		   
+		   lblInformacinDelLibro = new JLabel("Informaci\u00F3n del libro");
+		   lblInformacinDelLibro.setBounds(10, 34, 120, 14);
+		   contenedor.add(lblInformacinDelLibro);
 		
 	}
 	private void creaTextFields(){
 		   txtIdU = new JTextField();
-		   txtIdU.setBounds(121, 216, 120, 20);
+		   txtIdU.setBounds(121, 245, 120, 20);
 		   contenedor.add(txtIdU);
 		   txtIdU.setColumns(10);
+		   
+	}
+	private void creaTextArea(){
+		   txtResultados = new TextArea();
+		   txtResultados.setEditable(false);
+		   txtResultados.setBounds(70, 61, 307, 160);
+		   contenedor.add(txtResultados);
 		
 	}
+	
+	
+	
 	private void mostrarLibro(String clibro){
 		//ArrayList<String> libro = new ArrayList<String>();
 		
 		Busqueda carga_libro = new Busqueda();
 		libro = carga_libro.cargaLibro(clibro);
 		
+		String resultados_mostrar = "";
+		for(int i = 0; i<libro.size();i++){
+			resultados_mostrar+= libro.get(i) + "\n";
+		
+		}
+		
+		txtResultados.setText(resultados_mostrar);
 		//parametros para mostrar en interfaz
 	}
 	private void generarPrestamo(){

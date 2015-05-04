@@ -114,9 +114,7 @@ public class Buscar_Libro extends JFrame implements ActionListener{
 		String parametros[] = new String[2] ;
 		parametros[0]=txtNombre.getText();
 		parametros[1]=txtAutor.getText();
-		for(int i = 0; i<2; i++){
-			System.out.println("Parametro : "+ (i+1) + " "+ parametros[i]);
-		}
+		
 		Resultados_Busqueda resultados = new Resultados_Busqueda(parametros);
 		resultados.setVisible(true);
 	}
