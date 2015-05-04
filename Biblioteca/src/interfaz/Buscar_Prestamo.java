@@ -13,7 +13,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
+/**
+ * Instituto Tecnológico de Costa Rica
+ * Requerimientos de Software
+ * Grupo 1
+ * @author Oswaldo Davila - 201222296, Estefanny Porras - 201241100
+ * Tarea 8 - Biblioteca
+ *
+ */
 public class Buscar_Prestamo extends JFrame implements ActionListener {
 
 	/**

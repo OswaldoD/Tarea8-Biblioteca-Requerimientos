@@ -6,7 +6,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
+/**
+ * Instituto Tecnológico de Costa Rica
+ * Requerimientos de Software
+ * Grupo 1
+ * @author Oswaldo Davila - 201222296, Estefanny Porras - 201241100
+ * Tarea 8 - Biblioteca
+ *
+ */
 public class Carga_archivo {
 	private String ruta;
 	

@@ -9,7 +9,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+/**
+ * Instituto Tecnológico de Costa Rica
+ * Requerimientos de Software
+ * Grupo 1
+ * @author Oswaldo Davila - 201222296, Estefanny Porras - 201241100
+ * Tarea 8 - Biblioteca
+ *
+ */
 public class Menu_Principal extends JFrame implements ActionListener {
 
 	/**

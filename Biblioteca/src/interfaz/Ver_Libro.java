@@ -18,7 +18,14 @@ import javax.swing.JButton;
 import logica.Busqueda;
 
 import javax.swing.JTextField;
-
+/**
+ * Instituto Tecnológico de Costa Rica
+ * Requerimientos de Software
+ * Grupo 1
+ * @author Oswaldo Davila - 201222296, Estefanny Porras - 201241100
+ * Tarea 8 - Biblioteca
+ *
+ */
 public class Ver_Libro extends JFrame implements ActionListener{
 
 	/**
