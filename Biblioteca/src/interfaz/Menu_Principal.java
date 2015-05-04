@@ -83,40 +83,20 @@ public class Menu_Principal extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		//String source = (String) e.getSource();
-		//source.equals(anObject)
-		if (e.getSource()==mntmPrestamoLibro){
-			System.out.println("Prestar");
-			
+
+		if (e.getSource()==mntmPrestamoLibro){			
 			Buscar_Libro buscar = new Buscar_Libro();
 			buscar.setVisible(true);
-			
-
-			
-			/*
-			Carga_archivo archivo = new Carga_archivo("hi");
-			System.out.println("Cargo " + archivo.load_file().get(1));
-			ArrayList <String> escribir = new ArrayList<String>();
-			escribir.add("Hola");
-			escribir.add("Como estas");
-			archivo.escribe_archivo(escribir);*/
-			
 			dispose();
 		}
-		
-		else if (e.getSource()==mtnmDevolverLibro){
-			System.out.println("Devolver");
-			
+		else if (e.getSource()==mtnmDevolverLibro){			
 			Buscar_Prestamo devolver = new Buscar_Prestamo();
 			devolver.setVisible(true);
 			dispose();
 		}
-		
 		else if (e.getSource()==mntmSalir){
 			dispose();
 		}
-
-		
 	}
 
 }

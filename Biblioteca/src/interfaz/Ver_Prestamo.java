@@ -108,10 +108,8 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		Devolucion g_devolucion = new Devolucion();
 		g_devolucion.generaDevolucion(p_mostrar, parametros[0], parametros[1]);
 		
-		
 	    JOptionPane.showMessageDialog(null,"La devolución se ha realizado con éxito",
 					  "Devolución Realizada",JOptionPane.WARNING_MESSAGE);
-	    
 	    Menu_Principal principal = new Menu_Principal();
 		principal.setVisible(true);
 		dispose();
@@ -122,7 +120,6 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource()==mntmAtras){
-			System.out.println("Prestar");
 			Menu_Principal principal = new Menu_Principal();
 			principal.setVisible(true);
 			dispose();
@@ -133,7 +130,6 @@ public class Ver_Prestamo extends JFrame implements ActionListener {
 		}
 		else if(e.getSource()==btnDevolverLibro){
 			generaDevolucion();
-			System.out.println("Devolver");
 		}
 	}
 

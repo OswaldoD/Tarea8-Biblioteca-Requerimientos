@@ -138,7 +138,6 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 		int opcion = Integer.parseInt(tmp);
 		
 		Busqueda busqueda = new Busqueda();
-		System.out.println("Mostrar libro : " + busqueda.buscaCodigoLibro(opcion));
 		
 		Ver_Libro libro = new Ver_Libro(busqueda.buscaCodigoLibro(opcion));
 		libro.setVisible(true);
@@ -150,7 +149,6 @@ public class Resultados_Busqueda extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource()==mntmAtras){
-			System.out.println("Prestar");
 			Buscar_Libro buscar = new Buscar_Libro();
 			buscar.setVisible(true);
 			dispose();

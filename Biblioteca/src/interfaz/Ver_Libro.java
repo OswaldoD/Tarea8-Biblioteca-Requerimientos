@@ -130,14 +130,8 @@ public class Ver_Libro extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource()==mntmAtras){
-			System.out.println("Prestar");
 			Buscar_Libro buscar = new Buscar_Libro();
-			buscar.setVisible(true);
-			
-			/* Acá debiera ir
-			Resultados_Busqueda resultado = new Resultados_Busqueda();
-			resultado.setVisible(true);*/
-			
+			buscar.setVisible(true);	
 			dispose();
 		}
 		else if(e.getSource()==btnSolicitarPrstamo){

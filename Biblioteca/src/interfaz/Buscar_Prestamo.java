@@ -124,7 +124,6 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource()==mntmAtras){
-			System.out.println("Prestar");
 			Menu_Principal principal = new Menu_Principal();
 			principal.setVisible(true);
 			dispose();
@@ -134,9 +133,6 @@ public class Buscar_Prestamo extends JFrame implements ActionListener {
 			dispose();
 		}
 		else if(e.getSource()==btnBuscar){
-			/*
-			Resultados_Prestamos resultados = new Resultados_Prestamos();
-			resultados.setVisible(true);*/
 			muestraPrestamo();
 			dispose();
 		}
